@@ -15,7 +15,21 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        Pokemon bulbasaur = new();
+        bulbasaur.Numero = 1;
+        bulbasaur.Nome = "Bulbasaur";
+        bulbasaur.Tipo.Add("Venenoso");
+        bulbasaur.Tipo.Add("Planta");
+        bulbasaur.Imagem="\\img\\pokemons\\001.png";
+
+        var ivysaur = new Pokemon(){
+            Numero = 2,
+            Nome = "Ivysaur",
+            Tipo = {"Planta, Venenoso"},
+            Imagem = "\\img\\pokemons\\002.png"
+        };
+        ViewData["Ivysaur"] = ivysaur;
+        return View(bulbasaur);
     }
 
     public IActionResult Privacy()
